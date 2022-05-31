@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="scripts/script.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="row">
+            <div style="margin-left: 1rem;" class="col-4">
+                <h1 style="color: rgb(255, 255, 255);">Biletçi</h1>
+                <i style="font-size: 3rem; margin-left: 1rem; color: white;" class="bi bi-ticket-detailed"></i>
+            </div>
+            <div class="col-3" style="text-align: center; margin-top: 3rem;">
+                <span id="date" class="text-white">Güncellenme Tarihi : </span>
+            </div>
+            <div class="links col-4" style="margin: auto; margin-left: 6rem;">
+                <a href="index.html">Anasayfa</a>
+                <a href="about.html">Hakkımızda</a>
+                <a href="contact.html">İletişim</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Konser</th>
+                        <th>Yer</th>
+                        <th>Tarih</th>
+                        <th>Fiyat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Adamlar</td>
+                        <td>Bursa</td>
+                        <td>05.06.2022</td>
+                        <td>150 ₺</td>
+                    </tr>
+                    <tr>
+                        <td>Tarkan</td>
+                        <td>Antalya</td>
+                        <td>10.06.2022</td>
+                        <td>200 ₺</td>
+                    </tr>
+                    <tr>
+                        <td>Müslüm Gürses</td>
+                        <td>Ankara</td>
+                        <td>12.06.2022</td>
+                        <td>250 ₺</td>
+                    </tr>
+                    <tr>
+                        <td>Hakkı Bulut</td>
+                        <td>İstanbul</td>
+                        <td>13.06.2022</td>
+                        <td>300 ₺</td>
+                    </tr>
+                    <tr>
+                        <td>Bülent Serttaş</td>
+                        <td>Bodrum</td>
+                        <td>22.06.2022</td>
+                        <td>350 ₺</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="info">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ducimus, eos, impedit in voluptatum
+                veritatis tempore dolor provident totam natus voluptates animi corrupti. Exercitationem repellat
+                nesciunt doloremque deserunt quam maiores! Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Nulla id rem quasi soluta, nesciunt totam. Quaerat, nesciunt labore laboriosam soluta consectetur a enim
+                architecto iste illo libero. Placeat, ab iste. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Non libero iste eveniet, esse quam, id suscipit eius cum fugit officia culpa, minima dolores modi rem
+                voluptatem pariatur expedita eligendi quibusdam! Lorem ipsum dolor sit, amet consectetur adipisicing
+                elit. Saepe odit eum hic, tempora voluptatibus quasi? Possimus alias aliquid asperiores totam, quia
+                commodi incidunt harum voluptatibus in unde delectus reprehenderit non!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti ducimus, eos, impedit in voluptatum
+                veritatis tempore dolor provident totam natus voluptates animi corrupti. Exercitationem repellat
+                nesciunt doloremque deserunt quam maiores! Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Nulla id rem quasi soluta, nesciunt totam. Quaerat, nesciunt labore laboriosam soluta consectetur a enim
+                architecto iste illo libero. Placeat, ab iste. Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Non libero iste eveniet, esse quam, id suscipit eius cum fugit officia culpa, minima dolores modi rem
+                voluptatem pariatur expedita eligendi quibusdam!</p>
+        </div>
+        <div class="form">
+            <div style="text-align: center;">
+                    <label for="event" style="color: white;">Konser seçiniz : </label>
+                    <select style="height: 3rem;" id="event">
+                        <option value="1">Adamlar</option>
+                        <option value="2">Tarkan</option>
+                        <option value="3">Müslüm Gürses</option>
+                        <option value="4">Hakkı Bulut</option>
+                        <option value="5">Bülent Serttaş</option>
+                    </select>
+                <button class="btn btn-dark" onclick="select()" id="bilet" data-bs-toggle="modal"
+                    data-bs-target="#ticketModal">Seç</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="ticketModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content" style="height: 23rem;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="who"></h5>
+                    <p style="padding-left: 0rem; margin-top: 1rem; margin-left: 3rem;" class="bg-warning" id="balance">
+                    </p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" id="count" name="count" class="form-control" value="0">
+                        <br>
+                        <button class="btn btn-info" id="done" onclick="calculateTicket()">Hesapla</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" disabled
+                        data-bs-target="#payModal" id="gotoPay" onclick="lastStage()">Ödemeye Geç</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="payModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ödemeyi Tamamla</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <input type="number" class="form-control" id="card-number" placeholder="Kart Numarası"
+                            name="card-number" autocomplete="off">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="name-surname" placeholder="Kart Üzerindeki İsim"
+                            name="name-surname">
+                    </div>
+                    <div class="mb-3 row">
+                        <div class="col">
+                            <input type="text" class="form-control" id="last-date" placeholder="Son Geçerlilik Tarihi"
+                                name="last-date" autocomplete="off">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" id="sec-code" placeholder="CVV Kodu"
+                                name="sec-code" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h2 id="total"></h2>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="text-align: center;">
+                            <i class="fa-solid fa-credit-card" style="color: crimson;"></i>
+                        </div>
+                        <div class="col" style="text-align: center;">
+                            <i class="fa-brands fa-cc-visa" style="color: cornflowerblue;"></i>
+                        </div>
+                        <div class="col" style="text-align: center;">
+                            <i class="fa-brands fa-cc-mastercard" style="color: orangered;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-primary">Onayla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
